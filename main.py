@@ -1,4 +1,5 @@
 import numpy as np
+from logic.entrada import ingresar_problema
 from logic.simplex_revisado import resolver_simplex_revisado
 from logic.graficador import generar_grafico
 
@@ -17,14 +18,16 @@ def iniciar_optimizador():
     # ---------------------------------------------------------
     
     # 1. Definir los datos matemáticos
-    C = np.array([3, 5]) # Función objetivo
+    """C = np.array([3, 5]) # Función objetivo
     A = np.array([       # Matriz de restricciones
         [1, 0],
         [0, 2],
         [3, 2]
     ])
     b = np.array([4, 12, 18]) # Lados derechos
-    
+    """
+    tipo, C, A, signos, b = ingresar_problema()
+
     # 2. Si el problema tiene 2 variables, mostrar el método gráfico
     if len(C) == 2:
         generar_grafico(A, b, C)
